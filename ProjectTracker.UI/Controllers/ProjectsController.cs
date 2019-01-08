@@ -20,6 +20,10 @@ namespace ProjectTracker.UI.Controllers
             this._context = context;
         }
 
+        /// <summary>
+        /// Geeting All Projects from Database
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IHttpActionResult> GetProjectsAsync()
         {
