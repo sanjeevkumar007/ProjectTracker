@@ -9,7 +9,7 @@ namespace ProjectTracker.Models.Entities
 {
     public class Country
     {
-        [Key]
+        
         public int CountryId { get; set; }
 
         [Required]
@@ -23,6 +23,6 @@ namespace ProjectTracker.Models.Entities
 
         [Required]
         public DateTimeOffset CreatedDate { get; set; }
-        public virtual ICollection<Project> Projects { get; set; }
+        //public virtual ICollection<Project> Projects { get; set; }
     }
 }

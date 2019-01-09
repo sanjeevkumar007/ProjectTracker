@@ -22,6 +22,7 @@ namespace ProjectTracker.UI
             );
 
             UnityDependencyRegister.Register(config);
+            //config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling= Newtonsoft.Json.ReferenceLoopHandling.Ignore;
         }
     }
 }

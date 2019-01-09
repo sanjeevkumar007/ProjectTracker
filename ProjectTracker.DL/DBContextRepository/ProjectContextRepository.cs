@@ -14,7 +14,7 @@ namespace ProjectTracker.DL.DBContextRepository
 
         public ProjectContextRepository()
         {
-             _context=new ProjectContext();
+            _context = ProjectContext.GetInstance;
         }
         public async Task AddProjectAsync(Project projectToAdd)
         {
@@ -41,9 +41,13 @@ namespace ProjectTracker.DL.DBContextRepository
 
         public async Task UpdateProjectAsync(int Id, Project projecToUpdate)
         {
-            var project = await _context.Projects.FirstOrDefaultAsync(p => p.ProjectId == Id);
-            _context.Projects.Remove(project);
-            _context.Projects.Add(projecToUpdate);
+            Project project = await _context.Projects.FirstOrDefaultAsync(p => p.ProjectId == Id);
+
+            project.Name = projecToUpdate.Name;
+            project.CountryId = projecToUpdate.CountryId;
+            project.Description = projecToUpdate.Description;
+            project.StartDate = projecToUpdate.StartDate;
+
             await _context.SaveChangesAsync();
         }
     }

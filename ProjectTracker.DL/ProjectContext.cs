@@ -8,13 +8,26 @@ using System.Threading.Tasks;
 
 namespace ProjectTracker.DL
 {
-    public class ProjectContext : DbContext
+    public sealed class ProjectContext : DbContext
     {
-        public ProjectContext():base("ProjectsDB")
+        //Lazy Singleton pattern to initialize Project Context class
+        private static readonly Lazy<ProjectContext> instance = new Lazy<ProjectContext>(()=>new ProjectContext());
+        private static readonly object obj = new object();
+
+        private ProjectContext() : base("ProjectsDB")
         {
             Database.SetInitializer(new ProjectDBInitilizer());
         }
-        public DbSet<Project> Projects{ get; set; }
+
+        public static ProjectContext GetInstance
+        {
+            get
+            {
+                return instance.Value;
+            }
+        }
+
+        public DbSet<Project> Projects { get; set; }
         public DbSet<Country> Countries { get; set; }
     }
 
@@ -40,7 +53,7 @@ namespace ProjectTracker.DL
                     Name="I&Shore",
                     Description="I&Shore on 6th floor",
                     CountryId=2,
-                     StartDate =new DateTime(2018,03,01),
+                    StartDate =new DateTime(2018,03,01),
                     EndDate=new DateTime(2020,03,01)
 
                 },
@@ -79,7 +92,7 @@ namespace ProjectTracker.DL
               },
               new Country
               {
-                  CountryId=1,
+                  CountryId=3,
                   CountryName="Brasil",
                   ContinentId=4,
                   Manager="Juliana Pompilo",

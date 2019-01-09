@@ -29,11 +29,16 @@ namespace ProjectTracker.UI.Controllers
         {
             var projects=await _context.GetAsync();
             return Ok(projects);
+            
         }
 
         [HttpGet]
         public async Task<IHttpActionResult> GetProjectsByIdAsync(int Id)
         {
+            if (Id==0)
+            {
+                return NotFound();
+            }
             var project= await _context.GetByIdAsync(Id);
             return Ok(project);
 

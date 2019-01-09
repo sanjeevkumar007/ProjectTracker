@@ -13,7 +13,7 @@ namespace ProjectTracker.DL.CountryContextRepository
         private readonly ProjectContext _context;
         public CountryContextRepository()
         {
-            _context = new ProjectContext();
+            _context = ProjectContext.GetInstance;
         }
         public async Task AddCountryAsync(Country countryToAdd)
         {
@@ -39,8 +39,14 @@ namespace ProjectTracker.DL.CountryContextRepository
 
         public async Task UpdateCountryAsync(int Id, Country countryToUpdate)
         {
-            _context.Countries.Remove(await _context.Countries.FindAsync(Id));
-            _context.Countries.Add(countryToUpdate);
+            Country country=_context.Countries.Remove(await _context.Countries.FindAsync(Id));
+
+            country.CountryName = countryToUpdate.CountryName;
+            country.CountryId = countryToUpdate.CountryId;
+            country.ContinentId= countryToUpdate.ContinentId;
+            country.Manager = countryToUpdate.Manager;
+            country.CreatedDate = countryToUpdate.CreatedDate;
+
             await _context.SaveChangesAsync();
         }
     }

@@ -14,7 +14,7 @@ namespace ProjectTracker.Models.Entities
         public int ProjectId { get; set; }
 
         [Required]
-        [ForeignKey("Country")]
+        //[ForeignKey("Country")]
         public int CountryId { get; set; }
 
         [Required]
@@ -26,7 +26,7 @@ namespace ProjectTracker.Models.Entities
 
         [Required]
         public DateTime EndDate { get; set; }
-        public virtual Country Countries { get; set; }
+        //public virtual Country Countries { get; set; }
 
     }
 }

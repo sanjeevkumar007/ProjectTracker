@@ -28,7 +28,12 @@ namespace ProjectTracker.UI.Controllers
         [HttpGet]
         public async Task<IHttpActionResult> GetCountryByIdAsync(int Id)
         {
+            if (Id==0)
+            {
+                return NotFound();
+            }
             var country = await _context.GetByIdAsync(Id);
+
             if (country == null)
             {
                 return NotFound();
