@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectTracker.DL", "Projec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectTracker.UI", "ProjectTracker.UI\ProjectTracker.UI.csproj", "{F04764AF-5D3D-457D-B359-9E1E65FB25D2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectTracker.APILogger", "ProjectTracker.APILogger\ProjectTracker.APILogger.csproj", "{37B0AC2E-B2AD-4DD4-9391-4F0AEDA8B3D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{F04764AF-5D3D-457D-B359-9E1E65FB25D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F04764AF-5D3D-457D-B359-9E1E65FB25D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F04764AF-5D3D-457D-B359-9E1E65FB25D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37B0AC2E-B2AD-4DD4-9391-4F0AEDA8B3D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37B0AC2E-B2AD-4DD4-9391-4F0AEDA8B3D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37B0AC2E-B2AD-4DD4-9391-4F0AEDA8B3D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37B0AC2E-B2AD-4DD4-9391-4F0AEDA8B3D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

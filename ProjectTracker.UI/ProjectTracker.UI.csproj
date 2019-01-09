@@ -140,6 +140,7 @@
   <ItemGroup>
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CountriesController.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -163,6 +164,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ProjectTracker.APILogger\ProjectTracker.APILogger.csproj">
+      <Project>{37b0ac2e-b2ad-4dd4-9391-4f0aeda8b3d1}</Project>
+      <Name>ProjectTracker.APILogger</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProjectTracker.BL\ProjectTracker.BL.csproj">
       <Project>{49278d8a-fa1e-4fcf-b499-33212ffc96ac}</Project>
       <Name>ProjectTracker.BL</Name>
