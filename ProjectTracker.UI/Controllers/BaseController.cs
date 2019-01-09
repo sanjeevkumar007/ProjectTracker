@@ -11,7 +11,7 @@ using System.Web.Http.ExceptionHandling;
 
 namespace ProjectTracker.UI.Controllers
 {
-    public class BaseController : ApiController,IExceptionHandler
+    public class BaseController : ApiController
     {
         private readonly ILogService _log;
 
