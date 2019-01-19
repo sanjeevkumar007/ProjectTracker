@@ -9,7 +9,7 @@ namespace ProjectTracker.APILogger
 {
     public sealed class Log : ILogService
     {
-        private static readonly Lazy<Log> instance = new Lazy<Log>();
+        private static readonly Lazy<Log> instance = new Lazy<Log>(()=>new Log());
 
         private Log()
         {

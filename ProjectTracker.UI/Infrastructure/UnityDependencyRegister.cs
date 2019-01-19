@@ -1,4 +1,6 @@
-﻿using ProjectTracker.DL.CountryContextRepository;
+﻿using ProjectTracker.BL.CountryRepository;
+using ProjectTracker.BL.ProjectRepository;
+using ProjectTracker.DL.CountryContextRepository;
 using ProjectTracker.DL.DBContextRepository;
 using System;
 using System.Collections.Generic;
@@ -14,7 +16,9 @@ namespace ProjectTracker.UI.Infrastructure
         public static void Register(HttpConfiguration configuration)
         {
             var container = new UnityContainer();
+            container.RegisterType<IProject, ProjectRepository>();
             container.RegisterType<IProjectContext, ProjectContextRepository>();
+            container.RegisterType<ICountry, CountryRepository>();
             container.RegisterType<ICountryContext, CountryContextRepository>();
             configuration.DependencyResolver = new UnityResolver(container);
         }

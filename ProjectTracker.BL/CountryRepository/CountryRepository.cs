@@ -9,7 +9,7 @@ using ProjectTracker.Models.Entities;
 
 namespace ProjectTracker.BL.CountryRepository
 {
-    public class CountryRepository : ICountryContext
+    public class CountryRepository : ICountry
     {
         private readonly ICountryContext _context;
         public CountryRepository(ICountryContext context)
@@ -22,12 +22,12 @@ namespace ProjectTracker.BL.CountryRepository
             await _context.AddCountryAsync(countryToAdd);
         }
 
-        public async Task<IEnumerable<Country>> GetAsync()
+        public async Task<IEnumerable<Country>> GetCountriesAsync()
         {
             return await _context.GetAsync();
         }
 
-        public async Task<Country> GetByIdAsync(int Id)
+        public async Task<Country> GetCountryByIdAsync(int Id)
         {
             return await _context.GetByIdAsync(Id);
         }

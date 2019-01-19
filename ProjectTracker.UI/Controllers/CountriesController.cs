@@ -1,4 +1,5 @@
-﻿using ProjectTracker.DL.CountryContextRepository;
+﻿using ProjectTracker.BL.CountryRepository;
+using ProjectTracker.DL.CountryContextRepository;
 using ProjectTracker.Models.Entities;
 using System;
 using System.Collections.Generic;
@@ -10,10 +11,10 @@ using System.Web.Http;
 
 namespace ProjectTracker.UI.Controllers
 {
-    public class CountriesController : ApiController
+    public class CountriesController : BaseController
     {
-        private readonly ICountryContext _context;
-        public CountriesController(ICountryContext context)
+        private readonly ICountry _context;
+        public CountriesController(ICountry context)
         {
             _context = context;
         }
@@ -21,7 +22,8 @@ namespace ProjectTracker.UI.Controllers
         [HttpGet]
         public async Task<IHttpActionResult> GetCountriesAsync()
         {
-            var countries = await _context.GetAsync();
+            var countries = await _context.GetCountriesAsync();
+            
             return Ok(countries);
         }
 
@@ -32,7 +34,7 @@ namespace ProjectTracker.UI.Controllers
             {
                 return NotFound();
             }
-            var country = await _context.GetByIdAsync(Id);
+            var country = await _context.GetCountryByIdAsync(Id);
 
             if (country == null)
             {

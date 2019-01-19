@@ -1,4 +1,5 @@
-﻿using ProjectTracker.DL.DBContextRepository;
+﻿using ProjectTracker.BL.ProjectRepository;
+using ProjectTracker.DL.DBContextRepository;
 using ProjectTracker.Models.Entities;
 using System;
 using System.Collections.Generic;
@@ -10,12 +11,12 @@ using System.Web.Http;
 
 namespace ProjectTracker.UI.Controllers
 {
-    public class ProjectsController : ApiController
+    public class ProjectsController : BaseController
     {
-        private readonly IProjectContext _context;
+        private readonly IProject _context;
 
        
-        public ProjectsController(IProjectContext context)
+        public ProjectsController(IProject context)
         {
             this._context = context;
         }
@@ -27,7 +28,7 @@ namespace ProjectTracker.UI.Controllers
         [HttpGet]
         public async Task<IHttpActionResult> GetProjectsAsync()
         {
-            var projects=await _context.GetAsync();
+            var projects=await _context.GetProjectsAsync();
             return Ok(projects);
             
         }
@@ -39,7 +40,7 @@ namespace ProjectTracker.UI.Controllers
             {
                 return NotFound();
             }
-            var project= await _context.GetByIdAsync(Id);
+            var project= await _context.GetProjectsByIdAsync(Id);
             return Ok(project);
 
         }

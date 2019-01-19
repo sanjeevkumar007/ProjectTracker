@@ -1,13 +1,10 @@
 ﻿using ProjectTracker.APILogger;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.ExceptionHandling;
+using System.Web.Http.Results;
 
 namespace ProjectTracker.UI.Controllers
 {
@@ -15,15 +12,15 @@ namespace ProjectTracker.UI.Controllers
     {
         private readonly ILogService _log;
 
-        //public async Task HandleAsync(ExceptionHandlerContext context, CancellationToken cancellationToken)
-        //{
-        //    _log.LogExceptionAsync(context.Exception.Message);
-        //    return Task.FromResult(0);
-        //}
-
-        public Task LogAsync(ExceptionLoggerContext context, CancellationToken cancellationToken)
+        public BaseController()
         {
-            throw new NotImplementedException();
+            _log = Log.GetInstance;
+        }
+
+        protected override ExceptionResult InternalServerError(Exception exception)
+        {
+            _log.LogExceptionAsync(exception.Message.ToString());
+            return base.InternalServerError(exception);
         }
     }
 }

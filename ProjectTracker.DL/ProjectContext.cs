@@ -12,7 +12,7 @@ namespace ProjectTracker.DL
     {
         //Lazy Singleton pattern to initialize Project Context class
         private static readonly Lazy<ProjectContext> instance = new Lazy<ProjectContext>(()=>new ProjectContext());
-        private static readonly object obj = new object();
+        
 
         private ProjectContext() : base("ProjectsDB")
         {
