@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjectTracker.Models.Entities
 {
-    public class Project
+    public class Project: BaseEntity
     {
         [Key]
         public int ProjectId { get; set; }

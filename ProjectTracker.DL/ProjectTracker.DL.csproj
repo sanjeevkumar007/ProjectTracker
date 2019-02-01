@@ -49,12 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CountryContextRepository\CountryContextRepository.cs" />
-    <Compile Include="CountryContextRepository\ICountryContext.cs" />
-    <Compile Include="DBContextRepository\IProjectContext.cs" />
-    <Compile Include="DBContextRepository\ProjectContextRepository.cs" />
+    <Compile Include="IRepository.cs" />
     <Compile Include="ProjectContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

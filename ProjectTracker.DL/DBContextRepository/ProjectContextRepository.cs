@@ -8,7 +8,7 @@ using System.Data.Entity;
 
 namespace ProjectTracker.DL.DBContextRepository
 {
-    public class ProjectContextRepository : IProjectContext
+    public class ProjectContextRepository : IRepository
     {
         private readonly ProjectContext _context;
 

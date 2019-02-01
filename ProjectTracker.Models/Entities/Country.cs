@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectTracker.Models.Entities
 {
-    public class Country
+    public class Country : BaseEntity
     {
         
         public int CountryId { get; set; }

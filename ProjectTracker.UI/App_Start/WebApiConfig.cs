@@ -1,4 +1,5 @@
-﻿using ProjectTracker.UI.Infrastructure;
+﻿using ProjectTracker.Models;
+using ProjectTracker.UI.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace ProjectTracker.UI
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            UnityDependencyRegister.Register(config);
+            UnityDependencyRegister<BaseEntity>.Register(config);
             //config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling= Newtonsoft.Json.ReferenceLoopHandling.Ignore;
         }
     }
