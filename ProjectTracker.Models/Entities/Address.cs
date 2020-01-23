@@ -10,5 +10,6 @@ namespace ProjectTracker.Models.Entities
     {
         public int AdddressId { get; set; }
         public string AddressName { get; set; }
+        public string StreetName { get; set; }
     }
 }
